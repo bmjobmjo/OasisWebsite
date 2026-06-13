@@ -81,7 +81,7 @@ export default function UseCases({ onBack }) {
         </div>
       </nav>
       
-      <div style={{ padding: '4rem 1rem' }}>
+      <div style={{ padding: '8rem 1rem 4rem' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--text-main)' }}>OASIS Use Cases</h1>

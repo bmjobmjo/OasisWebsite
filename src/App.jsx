@@ -29,6 +29,7 @@ import WebSettings from './WebSettings';
 import Customization from './Customization';
 import Architecture from './Architecture';
 import UseCases from './UseCases';
+import Comparison from './Comparison';
 import './index.css';
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
   if (viewMode === 'usecases') {
     return <UseCases onBack={() => setViewMode('home')} />;
   }
+  if (viewMode === 'comparison') {
+    return <Comparison onBack={() => setViewMode('home')} />;
+  }
 
   return (
     <>
@@ -68,6 +72,7 @@ function App() {
             <a href="#usecases" onClick={(e) => { e.preventDefault(); setViewMode('usecases'); }}>Use Cases</a>
             <a href="#setup">Setup Guide</a>
             <a href="#customization" onClick={(e) => { e.preventDefault(); setViewMode('customization'); }}>Customization</a>
+            <a href="#comparison" onClick={(e) => { e.preventDefault(); setViewMode('comparison'); }}>Comparison</a>
             <a href="#about">About</a>
             <button 
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
