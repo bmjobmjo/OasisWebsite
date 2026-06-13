@@ -90,13 +90,28 @@ export default function DesktopSettings({ onBack }) {
             <div style={{ marginBottom: '1.5rem', borderRadius: '0.5rem', overflow: 'hidden', border: '1px solid var(--border)', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
               <img src="/images/ai-config.png" alt="AI Config" style={{ width: '100%', display: 'block' }} />
             </div>
-            <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid var(--border)' }}>
+            <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid var(--border)', marginBottom: '1.5rem' }}>
               <h4 style={{ marginBottom: '1rem', color: 'var(--primary-light)' }}>Key Settings</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'var(--text-muted)' }}>
                 <li style={{ marginBottom: '0.75rem' }}><strong>Active LLM Provider:</strong> Select which API service powers your agents.</li>
                 <li style={{ marginBottom: '0.75rem' }}><strong>Provider Settings:</strong> Configure your API Key, Model ID (e.g., <code>google/gemma-4-31b-it</code>), Temperature, and Top P to control response creativity and deterministic behavior.</li>
                 <li style={{ marginBottom: '0.75rem' }}><strong>Embeddings Settings:</strong> Define the embedding model (e.g., <code>jinaai/jina-embeddings-v3</code>) used for local RAG consistency and document chunking.</li>
               </ul>
+            </div>
+
+            <div style={{ background: 'rgba(139, 92, 246, 0.05)', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
+              <h4 style={{ marginBottom: '1rem', color: 'var(--text-main)' }}>Recommended Provider Setups</h4>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+                <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
+                  <strong style={{ color: '#8b5cf6' }}>OpenRouter:</strong> For evaluation purposes, we highly recommend using OpenRouter. You can quickly create an account using Gmail and generate an API key. While they offer free models for testing, they can sometimes be slow. <code>google/gemma-4-31b-it</code> is a fantastic, very low-priced option that gives reasonable performance. However, in our testing, the fastest and best-suited model overall is <strong>Gemini Flash 2.5</strong> (<code>google/gemini-2.5-flash</code>).
+                </p>
+                <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
+                  <strong style={{ color: '#8b5cf6' }}>Gemini (Direct AI Studio):</strong> For testing and evaluation, you can also directly use a Gemini API key obtained from Google AI Studio. Google provides free tier credits, but keep in mind that those credits are somewhat limited and can expire quickly with heavy usage.
+                </p>
+                <p style={{ margin: 0, lineHeight: '1.6' }}>
+                  <strong style={{ color: '#8b5cf6' }}>Local LLM (LM Studio):</strong> OASIS fully supports LM Studio API endpoints for running entirely local, offline AI. If you have a sufficiently powerful PC, you can try this out. For context, an ASUS TUF GAMING F15 with 32GB RAM works but is very slow (around 10 tokens/second). To make it work, you must set the context window to 32K, which impacts speed. We are considering releasing a prompt-tuned version specifically to run better locally.
+                </p>
+              </div>
             </div>
           </section>
 
