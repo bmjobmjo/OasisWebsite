@@ -28,6 +28,7 @@ import DesktopSettings from './DesktopSettings';
 import WebSettings from './WebSettings';
 import Customization from './Customization';
 import Architecture from './Architecture';
+import UseCases from './UseCases';
 import './index.css';
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
   if (viewMode === 'architecture') {
     return <Architecture onBack={() => setViewMode('home')} />;
   }
+  if (viewMode === 'usecases') {
+    return <UseCases onBack={() => setViewMode('home')} />;
+  }
 
   return (
     <>
@@ -61,6 +65,7 @@ function App() {
           <div className="nav-links">
             <a href="#features">Features</a>
             <a href="#architecture" onClick={(e) => { e.preventDefault(); setViewMode('architecture'); }}>Architecture</a>
+            <a href="#usecases" onClick={(e) => { e.preventDefault(); setViewMode('usecases'); }}>Use Cases</a>
             <a href="#setup">Setup Guide</a>
             <a href="#customization" onClick={(e) => { e.preventDefault(); setViewMode('customization'); }}>Customization</a>
             <a href="#about">About</a>
