@@ -16,7 +16,7 @@ export default function Architecture({ onBack }) {
             <ArrowLeft size={20} />
             <span>OASIS</span>
           </div>
-          <div className="nav-links">
+          <div className="nav-actions">
             <button onClick={onBack} className="btn btn-secondary">
               Back to Home
             </button>

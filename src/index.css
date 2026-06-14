@@ -116,6 +116,21 @@ code {
   align-items: center;
 }
 
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
 .nav-links a {
   color: var(--text-muted);
   font-weight: 500;
@@ -440,8 +455,27 @@ code {
   .innovation-grid {
     grid-template-columns: 1fr;
   }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border);
     display: none;
+  }
+  .nav-links.mobile-open {
+    display: flex;
   }
   .brainx-content {
     flex-direction: column;

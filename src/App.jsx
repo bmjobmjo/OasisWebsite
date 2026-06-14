@@ -22,7 +22,9 @@ import {
   User,
   Sun,
   Moon,
-  Settings
+  Settings,
+  Menu,
+  X
 } from 'lucide-react';
 import DesktopSettings from './DesktopSettings';
 import WebSettings from './WebSettings';
@@ -36,6 +38,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('desktop');
   const [theme, setTheme] = useState('dark');
   const [viewMode, setViewMode] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.className = theme === 'dark' ? '' : 'light-theme';
@@ -66,23 +69,26 @@ function App() {
       <nav className="navbar">
         <div className="container nav-content">
           <div className="logo">OASIS</div>
-          <div className="nav-links">
-            <a href="#features">Features</a>
-            <a href="#architecture" onClick={(e) => { e.preventDefault(); setViewMode('architecture'); }}>Architecture</a>
-            <a href="#usecases" onClick={(e) => { e.preventDefault(); setViewMode('usecases'); }}>Use Cases</a>
-            <a href="#setup">Setup Guide</a>
-            <a href="#customization" onClick={(e) => { e.preventDefault(); setViewMode('customization'); }}>Customization</a>
-            <a href="#comparison" onClick={(e) => { e.preventDefault(); setViewMode('comparison'); }}>Comparison</a>
-            <a href="#about">About</a>
+          <button className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+            <a href="#features" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+            <a href="#architecture" onClick={(e) => { e.preventDefault(); setViewMode('architecture'); setIsMobileMenuOpen(false); }}>Architecture</a>
+            <a href="#usecases" onClick={(e) => { e.preventDefault(); setViewMode('usecases'); setIsMobileMenuOpen(false); }}>Use Cases</a>
+            <a href="#setup" onClick={() => setIsMobileMenuOpen(false)}>Setup Guide</a>
+            <a href="#customization" onClick={(e) => { e.preventDefault(); setViewMode('customization'); setIsMobileMenuOpen(false); }}>Customization</a>
+            <a href="#comparison" onClick={(e) => { e.preventDefault(); setViewMode('comparison'); setIsMobileMenuOpen(false); }}>Comparison</a>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
             <button 
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onClick={() => { setTheme(theme === 'dark' ? 'light' : 'dark'); setIsMobileMenuOpen(false); }}
               className="btn btn-secondary"
               style={{ padding: '0.5rem', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', border: '1px solid var(--border)' }}
               title={theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <a href="#download" className="btn btn-primary">
+            <a href="#download" className="btn btn-primary" onClick={() => setIsMobileMenuOpen(false)}>
               <Download size={18} /> Get OASIS
             </a>
           </div>
@@ -577,7 +583,7 @@ function App() {
               </p>
             </div>
 
-            <div style={{ marginTop: '2rem', borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
+            <div style={{ marginTop: '2rem', borderTop: '1px solid var(--border)', paddingTop: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a 
                 href="https://www.linkedin.com/in/bijumonjanardhanan/" 
                 target="_blank" 
@@ -588,6 +594,16 @@ function App() {
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style={{ verticalAlign: 'middle' }}>
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg> Connect on LinkedIn
+              </a>
+              <a 
+                href="mailto:bmjo@digitalbrainex.com" 
+                className="btn btn-secondary" 
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderColor: 'var(--primary-light)', color: 'var(--primary-light)', background: 'transparent' }}
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle' }}>
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg> bmjo@digitalbrainex.com
               </a>
             </div>
           </div>
