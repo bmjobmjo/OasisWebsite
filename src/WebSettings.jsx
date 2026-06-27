@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ArrowLeft, Server, ShieldCheck, Layers, Zap, Mail, Send, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Server, ShieldCheck, Layers, Zap, Mail, Send, MessageCircle, Download } from 'lucide-react';
 import './index.css';
 
 export default function WebSettings({ onBack }) {
@@ -42,18 +42,66 @@ export default function WebSettings({ onBack }) {
                 <p style={{ color: 'var(--text-muted)' }}><strong>Pro Tip:</strong> Develop and test your agents on the Desktop App first, then seamlessly port the proven workflows to your live Web App server.</p>
               </div>
             </div>
-            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-              <div style={{ display: 'inline-block', background: 'rgba(245, 158, 11, 0.05)', color: '#f59e0b', padding: '1.5rem', borderRadius: '0.75rem', border: '1px solid rgba(245, 158, 11, 0.2)', textAlign: 'left', maxWidth: '800px', margin: '0 auto' }}>
-                <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: 0, marginBottom: '0.75rem', fontSize: '1.2rem', color: '#f59e0b' }}>
-                  <Zap size={20} /> Releasing soon by the end of June 2026
+            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
+              
+              {/* Windows Web Release Card */}
+              <div style={{ 
+                width: '100%', 
+                maxWidth: '800px', 
+                background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%)', 
+                border: '1px solid rgba(16, 185, 129, 0.2)', 
+                borderRadius: '0.75rem', 
+                padding: '2rem', 
+                textAlign: 'left',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
+              }}>
+                <h4 style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: 0, marginBottom: '0.75rem', fontSize: '1.25rem', fontWeight: 'bold' }}>
+                  <Server size={20} color="#10b981" /> Windows Web Release (v0.1.12)
+                </h4>
+                <p style={{ color: 'var(--text-main)', lineHeight: '1.6', fontSize: '1rem', marginBottom: '1.25rem' }}>
+                  The Windows Web release is now available! Deploy the full-fledged OASIS web application on Windows environments to enable multi-user access, granular permissions, and organization-wide agent workflows.
+                </p>
+                <a 
+                  href="https://github.com/bmjobmjo/DesktopAgenticSystem/releases/tag/windows_web_0.1.12" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-primary" 
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '0.5rem', 
+                    textDecoration: 'none',
+                    background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                    border: 'none',
+                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)'
+                  }}
+                >
+                  <Download size={18} /> Download Windows Web Release
+                </a>
+              </div>
+
+              {/* Ubuntu Release Card */}
+              <div style={{ 
+                width: '100%', 
+                maxWidth: '800px', 
+                background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%)', 
+                border: '1px solid rgba(245, 158, 11, 0.2)', 
+                borderRadius: '0.75rem', 
+                padding: '2rem', 
+                textAlign: 'left',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
+              }}>
+                <h4 style={{ color: '#f59e0b', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: 0, marginBottom: '0.75rem', fontSize: '1.25rem', fontWeight: 'bold' }}>
+                  <Zap size={20} color="#f59e0b" /> Ubuntu Release: Pending
                 </h4>
                 <p style={{ color: 'var(--text-main)', lineHeight: '1.6', fontSize: '1rem', marginBottom: '0.75rem' }}>
-                  Meanwhile, we recommend playing with the desktop application and preparing your agents and system to get ready to host the real web application.
+                  We are actively testing the server deployment setup to ensure it runs flawlessly on Ubuntu machines, and setting up a live demo site.
                 </p>
                 <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem', margin: 0 }}>
-                  If you can't wait, you can just build it from the source as it is already there in the repository. I just want to test it on a server and make sure it is working smoothly on an Ubuntu machine, and I also want to set up a live demo site. <strong>Waiting for a sponsor!</strong>
+                  If you can't wait, you can build from source as it is already in the repository. <strong>Waiting for a sponsor!</strong>
                 </p>
               </div>
+
             </div>
           </div>
 

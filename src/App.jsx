@@ -661,7 +661,7 @@ function App() {
             <div className="footer-col">
               <h4>Server / Cloud Deployment</h4>
               <p style={{ marginBottom: '1rem', fontSize: '0.9rem' }}>For multi-user access and centralized control. Set up easily on your own server or VPS environment.</p>
-              <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+              <button onClick={() => setViewMode('web-settings')} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 <Box size={18} /> Get Web Application
               </button>
             </div>
